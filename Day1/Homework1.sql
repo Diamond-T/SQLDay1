@@ -16,9 +16,9 @@ from inventory;
 
 --Question 3,(Not Sure) what film does the store have the most of?
 
-SELECT first_name,last_name
+SELECT last_name
 FROM actor
-WHERE last_name = 'William';
+WHERE last_name = 'Williams';
 
 
 --Question 4, (0)How many customers have the last name William?
