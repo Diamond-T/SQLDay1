@@ -21,7 +21,7 @@ FROM actor
 WHERE last_name = 'Williams';
 
 
---Question 4, (0)How many customers have the last name William?
+--Question 4, (4)How many customers have the last name William?
 
 SELECT MAX(customer_id)
 from payment;
