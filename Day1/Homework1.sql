@@ -10,42 +10,62 @@ WHERE amount BETWEEN 3.99 AND 5.99;
 
 --Question 2,(5607) How many payments were made between #3.99 and 5.99
 
-SELECT film_id
-from inventory;
+SELECT film_id, COUNT(*)
+FROM inventory
+GROUP BY film_id
+ORDER BY COUNT(*) DESC
+LIMIT 1;
 
-
---Question 3,(Not Sure) what film does the store have the most of?
+SELECT *
+from film
+WHERE film_id = 350;
+--Question 3,(350) what film does the store have the most of?
 
 SELECT last_name
 FROM actor
-WHERE last_name = 'Williams';
+WHERE last_name = 'William';
 
 
 --Question 4, (4)How many customers have the last name William?
 
-SELECT MAX(customer_id)
-from payment;
-
---Question 5,(599) what store employeee sold the most rentals
-
-SELECT COUNT (DISTINCT first_name)
-FROM actor;
-
---Question 6, (128) How many distict names are there
-
-
-SELECT COUNT (MAX film_actor)
-from film_id;
---Question 7 Not Sure what film has the most actors in it
-
-
-SELECT first_name,last_name,actor_id
-FROM actor
-WHERE last_name LIKE '%es';
---Question 8 (2) how many?
+SELECT  staff_id, COUNT(*)
+from rental
+GROUP BY staff_id;
 
 
 
+--Question 5,(staff ID one ) what store employeee sold the most rentals
 
---Question 9()Not sure
---question 10 Not sure
+SELECT COUNT(DISTINCT district)
+FROM address;
+
+--Question 6, (378) How many distict names are there
+
+SELECT film_id, Count (*)
+FROM film_actor
+GROUP BY film_id
+ORDER BY COUNT (*) DESC;
+
+--Question 7 () film has the most actors in it
+
+SELECT COUNT (*)
+FROM customer
+WHERE store_id = 1  AND last_name LIKE '%es'
+
+--Question 8 (13) how many?
+
+SELECT amount, COUNT(*)
+FROM payment
+WHERE customer_id BETWEEN 380 AND 430
+GROUP BY amount 
+HAVING COUNT(*) > 250;
+
+
+
+--Question 9()payment amount
+
+SELECT rating, COUNT(*)
+FROM film
+GROUP BY rating
+ORDER BY COUNT(*) DESC;
+--question 10 
